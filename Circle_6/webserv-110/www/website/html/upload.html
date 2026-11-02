@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upload/Delete Test</title>
+<link rel="stylesheet" href="/website/css/style.css">
+</head>
+<body>
+<div class="square">
+    <h2>Upload/Delete Test</h2>
+    <input type="file" id="upload-file">
+    <button onclick="uploadFile(uploadInput, uploadOutput)">Upload</button>
+    <progress id="upload-progress" value="0" max="100" style="width:100%; margin-top:10px;"></progress>
+    <span id="upload-percent">0%</span>
+    <input type="text" id="delete-filename" placeholder="Filename to delete">
+    <button onclick="deleteFile(deleteInput, uploadOutput)">Delete</button>
+    <pre id="upload-output"></pre>
+    <a href="/website/index.html"><button>Back</button></a>
+</div>
+
+<!-- PREVIEW OVERLAY -->
+<div id="preview-overlay">
+    <div id="preview-box">
+        <button id="close-preview">✕</button>
+        <iframe id="preview-frame"></iframe>
+    </div>
+</div>
+
+<script src="/website/js/main.js"></script>
+<script>
+const uploadInput = document.getElementById('upload-file');
+const deleteInput = document.getElementById('delete-filename');
+const uploadOutput = document.getElementById('upload-output');
+
+document.getElementById('close-preview').addEventListener('click', () => {
+    document.getElementById('preview-overlay').style.display = "none";
+    document.getElementById('preview-frame').srcdoc = "";
+});
+</script>
+</body>
+</html>

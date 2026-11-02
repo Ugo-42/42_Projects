@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CGI Tester</title>
+<link rel="stylesheet" href="/website/css/style.css">
+</head>
+<body>
+<div class="square">
+    <h2>CGI Tester</h2>
+
+    <div class="form-container">
+        <select id="cgi-file">
+            <option value="test.py">test.py</option>
+            <option value="test.pl">test.pl</option>
+            <option value="test.sh">test.sh</option>
+            <option value="big_body.py">big_body.py</option>
+            <option value="infinit_loop.py">infinit_loop.py</option>
+        </select>
+
+        <button onclick="runCGI()">Run CGI</button>
+    </div>
+
+    <a href="/website/index.html"><button>Back</button></a>
+</div>
+
+<script>
+function runCGI() {
+    const select = document.getElementById('cgi-file');
+    const file = select.value;
+    // Open CGI in a new tab
+    window.location.href = `/cgi-bin/${file}`;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Proceed</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            margin: 0;
+        }
+        a {
+            font-size: 48px; /* Increased font size */
+            font-weight: bold;
+            text-decoration: none;
+            color: rgb(200, 66, 66);
+            animation: spin 1.5s linear infinite;
+        }
+        img {
+            width: 500px; /* Adjust the size as needed */
+            height: 500px; /* Adjust the size as needed */
+            animation: spin 3s linear infinite;
+            margin-bottom: 200px; /* Space between image and link */
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://pngimg.com/d/shrek_PNG40.png" alt="Spinning Image">
+    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">Click here</a>
+</body>
+</html>

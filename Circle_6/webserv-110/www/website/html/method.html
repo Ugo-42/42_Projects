@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTTP Methods Test</title>
+<link rel="stylesheet" href="/website/css/style.css">
+</head>
+
+<body>
+<div class="square">
+    <h2>HTTP Methods Tester</h2>
+
+    <div class="form-container">
+        <input type="text" id="method-url" placeholder="Enter URL" size="30">
+
+        <select id="method-type">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+
+        <textarea id="method-body" placeholder="Request body" rows="5"></textarea>
+
+        <button id="send-btn">Send Request</button>
+    </div>
+
+    <a href="/website/index.html"><button>Back</button></a>
+</div>
+
+<!-- RESPONSE -->
+<div class="response-inner">
+    <button id="preview-btn">🔍 Preview</button>
+    <pre id="method-output"></pre>
+</div>
+
+<!-- PREVIEW OVERLAY -->
+<div id="preview-overlay">
+    <div id="preview-box">
+        <button id="close-preview">✕</button>
+        <iframe id="preview-frame"></iframe>
+    </div>
+</div>
+
+<script src="/website/js/main.js"></script>
+</body>
+</html>

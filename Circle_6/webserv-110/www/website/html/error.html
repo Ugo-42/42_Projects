@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Error Page Test</title>
+<link rel="stylesheet" href="/website/css/style.css">
+</head>
+<body>
+<div class="square">
+    <h2>Error Page Test</h2>
+
+    <div class="form-container">
+        <input type="text" id="error-code" maxlength="3" placeholder="404">
+        <button onclick="simulateError(errorInput,errorText)">Send Request</button>
+        <div id="error-text"></div>
+    </div>
+
+    <a href="/website/index.html"><button>Back</button></a>
+</div>
+
+<script src="/website/js/main.js"></script>
+<script>
+const errorInput = document.getElementById('error-code');
+const errorText = document.getElementById('error-text');
+allowOnlyDigits(errorInput);
+</script>
+</body>
+</html>

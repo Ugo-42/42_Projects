@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   header.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ugwentzi <ugwentzi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/21 09:41:33 by ugwentzi          #+#    #+#             */
+/*   Updated: 2025/11/04 12:11:30 by ugwentzi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef HEADER_H
+# define HEADER_H
+
+/* ************************************************************************** */
+/*                                 Includes                                   */
+/* ************************************************************************** */
+
+# include "config.hpp"
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
+# include "DiamondTrap.hpp"
+# include <climits>
+
+/* ************************************************************************** */
+/*                                 Templates                                  */
+/* ************************************************************************** */
+
+#include <sstream>
+
+template <typename T>
+inline std::string to_string(const T &value)
+{
+	std::ostringstream oss;
+	oss.width(3);
+	oss << value;
+	return oss.str();
+}
+
+#endif

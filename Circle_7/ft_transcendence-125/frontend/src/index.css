@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #415aa6;
+	--color-secondary: #f24b78;
+	--color-success: #95bf3b;
+	--color-error: #f24c27;
+	--color-warning: #f2d680;
+	--color-info: #B18ACD;
+
+	--font-micro-5: 'Micro 5', sans-serif;
+}
+
+kbd {
+  @apply inline-block bg-info/60 border border-info rounded-md font-micro-5 text-xl px-2;
+}

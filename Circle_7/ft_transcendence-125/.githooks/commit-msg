@@ -1,0 +1,95 @@
+#!/bin/bash
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(head -n 1 "$COMMIT_MSG_FILE")
+FULL_COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+REGEX="^([a-zA-Z0-9_-]+)(\(([^)]+)\))?:\ (.*)$"
+
+if [[ ! $COMMIT_MSG =~ $REGEX ]]; then
+	printf "\033[1;38;2;200;10;10m"
+	printf "┌──────────────────────────────────────────────────────────────┐\n"
+	printf "│                      COMMIT REJECTED                         │\n"
+	printf "└──────────────────────────────────────────────────────────────┘\n"
+	printf "\033[0m\n"
+    printf " Expected format:      <type>: <description>\n"
+    printf "                   OR  <type>(scope): <description>\n"
+	echo
+    printf " Check COMMIT_POLICY.md for details.\n"
+	echo
+    exit 1
+fi
+
+TYPE="${BASH_REMATCH[1]}"
+SCOPE="${BASH_REMATCH[3]}"
+DESC="${BASH_REMATCH[4]}"
+
+ALLOWED_TYPES="feat|fix|docs|style|refactor|perf|test|chore"
+if [[ ! "$TYPE" =~ ^($ALLOWED_TYPES)$ ]]; then
+	printf "\033[1;38;2;200;10;10m"
+	printf "┌──────────────────────────────────────────────────────────────┐\n"
+	printf "│                      COMMIT REJECTED                         │\n"
+	printf "└──────────────────────────────────────────────────────────────┘\n"
+	printf "\033[0m\n"
+    printf " Invalid type: '$TYPE'.\n"
+    printf " Allowed types are: $ALLOWED_TYPES\n"
+	echo
+    exit 1
+fi
+
+if [[ -n "$SCOPE" && ${#SCOPE} -le 1 ]]; then
+	printf "\033[1;38;2;200;10;10m"
+	printf "┌──────────────────────────────────────────────────────────────┐\n"
+	printf "│                      COMMIT REJECTED                         │\n"
+	printf "└──────────────────────────────────────────────────────────────┘\n"
+	printf "\033[0m\n"
+    printf " Scope must be longer than 1 character.\n"
+	echo
+    exit 1
+fi
+
+WORD_COUNT=$(echo "$DESC" | wc -w)
+if [ "$WORD_COUNT" -le 1 ]; then
+	printf "\033[1;38;2;200;10;10m"
+	printf "┌──────────────────────────────────────────────────────────────┐\n"
+	printf "│                      COMMIT REJECTED                         │\n"
+	printf "└──────────────────────────────────────────────────────────────┘\n"
+	printf "\033[0m\n"
+    printf " Description must be descriptive (more than one word).\n"
+	echo
+    exit 1
+fi
+
+exec < /dev/tty
+
+printf "\033[1;38;2;10;200;42m"
+printf "┌──────────────────────────────────────────────────────────────┐\n"
+printf "│                     COMMIT VALIDATION                        │\n"
+printf "└──────────────────────────────────────────────────────────────┘\n"
+printf "\033[0m\n"
+printf "─── Your commit message ─────────────────────────────────────── \n"
+printf "\033[33m%s\033[0m\n" "$FULL_COMMIT_MSG"
+printf "─────────────────────────────────────────────────────────────── \n"
+printf "\n ⚠️  Please \033[1mreread\033[0m your commit to make sure it follows the policy\n"
+printf " and has no typos.\n"
+echo
+read -p "Accept this commit? (y/N): " CONFIRM
+echo
+if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+    printf "Commit aborted by user.\n"
+    exit 1
+fi
+
+if [[ -z "$SCOPE" ]]; then
+    printf " You have not entered a scope. Are you \033[1mreally\033[0m sure\n"
+	printf " this commit doesn't refer to any scope / module?\n"
+	echo
+	read -p "Accept this commit? (y/N): " SCOPE_CONFIRM
+    if [[ ! "$SCOPE_CONFIRM" =~ ^[Yy]$ ]]; then
+        printf "Commit aborted. Please add a scope context (e.g., $TYPE(api): $DESC).\n"
+        exit 1
+    fi
+	echo
+fi
+
+exit 0

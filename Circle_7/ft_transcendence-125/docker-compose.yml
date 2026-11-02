@@ -1,0 +1,154 @@
+networks:
+  transcendence_net:
+    driver: bridge
+
+volumes:
+  pg_data:
+  profile_uploads:
+
+services:
+  # --- DATABASE CLUSTER ---
+  db-cluster:
+    image: postgres:15-alpine
+    container_name: db-cluster
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      AUTH_DB_NAME: ${AUTH_DB_NAME}
+      AUTH_DB_USER: ${AUTH_DB_USER}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD}
+      USER_DB_NAME: ${USER_DB_NAME}
+      USER_DB_USER: ${USER_DB_USER}
+      USER_DB_PASSWORD: ${USER_DB_PASSWORD}
+      GAME_DB_NAME: ${GAME_DB_NAME}
+      GAME_DB_USER: ${GAME_DB_USER}
+      GAME_DB_PASSWORD: ${GAME_DB_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./database/init-dbs.sh:/docker-entrypoint-initdb.d/init-dbs.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - transcendence_net
+
+  # --- USER SERVICE ---
+  # Gestion utilisateur + authentification + profil + amis
+  user-service:
+    build: ./backend/user-service
+    container_name: user-service
+    depends_on:
+      db-cluster:
+        condition: service_healthy
+    env_file:
+      - ./backend/user-service/.env.user-service
+    environment:
+      - DATABASE_URL=postgresql://${USER_DB_USER}:${USER_DB_PASSWORD}@${USER_DB_HOST}:5432/${USER_DB_NAME}
+      - PORT=${USER_SERVICE_PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - GAME_SERVICE_INTERNAL_KEY=${GAME_SERVICE_INTERNAL_KEY}
+    volumes:
+      - profile_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${USER_SERVICE_PORT}/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - transcendence_net
+
+  # --- GAME SERVICE ---
+  game-service:
+    build: ./backend/game-service
+    container_name: game-service
+    depends_on:
+      db-cluster:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql://${GAME_DB_USER}:${GAME_DB_PASSWORD}@${GAME_DB_HOST}:5432/${GAME_DB_NAME}
+      - PORT=${GAME_SERVICE_PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - USER_SERVICE_HOST=${USER_SERVICE_HOST}
+      - USER_SERVICE_PORT=${USER_SERVICE_PORT}
+      - GAME_SERVICE_INTERNAL_KEY=${GAME_SERVICE_INTERNAL_KEY}
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${GAME_SERVICE_PORT}/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - transcendence_net
+
+  # --- SOCKET SERVICE ---
+  socket-service:
+    build: ./backend/socket-service
+    container_name: socket-service
+    depends_on:
+      db-cluster:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql://${GAME_DB_USER}:${GAME_DB_PASSWORD}@${GAME_DB_HOST}:5432/${GAME_DB_NAME}
+      - PORT=${SOCKET_SERVICE_PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - USER_SERVICE_HOST=${USER_SERVICE_HOST}
+      - USER_SERVICE_PORT=${USER_SERVICE_PORT}
+      - GAME_SERVICE_HOST=${GAME_SERVICE_HOST}
+      - GAME_SERVICE_PORT=${GAME_SERVICE_PORT}
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${SOCKET_SERVICE_PORT}/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - transcendence_net
+
+  # --- FRONTEND ---
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    networks:
+      - transcendence_net
+
+  # --- GATEWAY (Nginx) ---
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    volumes:
+      - ./gateway/templates:/etc/nginx/templates
+    environment:
+      - FRONTEND_HOST=${FRONTEND_HOST}
+      - FRONTEND_PORT=${FRONTEND_PORT}
+
+      # Authentification maintenant dans user-service
+      - USER_SERVICE_HOST=${USER_SERVICE_HOST}
+      - USER_SERVICE_PORT=${USER_SERVICE_PORT}
+
+      - GAME_SERVICE_HOST=${GAME_SERVICE_HOST}
+      - GAME_SERVICE_PORT=${GAME_SERVICE_PORT}
+
+      - SOCKET_SERVICE_HOST=${SOCKET_SERVICE_HOST}
+      - SOCKET_SERVICE_PORT=${SOCKET_SERVICE_PORT}
+
+      - GATEWAY_PORT_HTTP=${GATEWAY_PORT_HTTP}
+      - GATEWAY_PORT_HTTPS=${GATEWAY_PORT_HTTPS}
+    ports:
+      - "${GATEWAY_PORT_HTTP}:80"
+      - "${GATEWAY_PORT_HTTPS}:443"
+    depends_on:
+      frontend:
+        condition: service_started
+      user-service:
+        condition: service_healthy
+      game-service:
+        condition: service_healthy
+      socket-service:
+        condition: service_healthy
+    networks:
+      - transcendence_net

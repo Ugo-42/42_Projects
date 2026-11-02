@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+
+  // Auth
+  email       	String        @unique
+  username    	String        @unique
+  passwordHash	String
+
+  // Auth_Token
+  refreshToken RefreshToken?
+
+  // Profile
+  avatarUrl		String?
+  bio			String?
+  level   Int @default(1)
+  xp      Int @default(0)
+  wins    Int @default(0)
+  losses  Int @default(0)
+  bombplaced Int @default(0)
+  enemyKill Int @default(0)
+
+  // Email 2FA
+  twoFactorEnabled      Boolean  @default(false)
+  twoFactorCodeHash     String?
+  twoFactorCodeExpiresAt DateTime?
+  twoFactorCodePurpose  String?
+
+  // Dates
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  //friends
+  sentFriendRequests     Friendship[] @relation("sentFriendRequests")
+  receivedFriendRequests Friendship[] @relation("receivedFriendRequests")
+  achievements         UserAchievement[]
+}
+
+enum AchievementType {
+  PLAY_GAME
+  WIN_GAME
+  PLACE_10_BOMBS
+}
+
+model UserAchievement {
+  id         Int            @id @default(autoincrement())
+  userId     Int
+  type       AchievementType
+  rewardXp   Int
+  unlockedAt DateTime       @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, type])
+  @@index([userId])
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+
+  userId    Int      @unique
+  tokenHash String   @unique
+  expiresAt DateTime
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
+}
+
+model Friendship {
+  id Int @id @default(autoincrement())
+
+  senderId   Int
+  receiverId Int
+
+  status FriendshipStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sender   User @relation("sentFriendRequests", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User @relation("receivedFriendRequests", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@unique([senderId, receiverId])
+  @@index([receiverId, status])
+  @@index([senderId, status])
+}
+
+enum FriendshipStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}

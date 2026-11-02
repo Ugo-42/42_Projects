@@ -1,0 +1,309 @@
+{
+	"play": "Play",
+	"game_board": "GAME BOARD",
+	"or": "OR",
+
+	"questions": {
+		"leave": "Do you want to leave?",
+		"really_sure": "Are you sure?"
+	},
+
+	"2FA": {
+		"login_failed": "Invalid credentials",
+		"two_factor_title": "Two-step verification",
+		"two_factor_sent": "A code was sent by email. Please enter it.",
+		"two_factor_code": "Verification code",
+		"enter_two_factor_code": "Enter the 6-digit code",
+		"two_factor_invalid": "Invalid or expired code. Please try again.",
+		"verify": "Verify",
+		"two_factor_update_failed": "Unable to update 2FA settings.",
+		"enable_two_factor": "Enable 2FA",
+		"disable_two_factor": "Disable 2FA"
+	},
+
+	"auth": {
+		"login": "LOGIN",
+		"register": "REGISTER",
+		"signup_with": "SIGN UP WITH",
+		"username": "Username",
+		"email_username": "Email or username",
+		"password": "Password",
+		"confirm_password": "Confirm password",
+		"enter_email": "Enter your email",
+		"enter_email_username": "Enter your email or username",
+		"enter_password": "Enter your password",
+		"create_account": "Create an account",
+		"have_account": "Already have an account?",
+		"choose": {
+			"choose_username": "Choose a username",
+			"choose_password": "Choose a password"
+		}
+	},
+
+	"button": {
+		"submit": "Submit",
+		"edit": "Edit profile",
+		"create": "Create",
+		"cancel": "Cancel",
+		"delete": "Delete",
+		"close": "Close",
+		"confirm": "Confirm",
+		"add": "Add friend",
+		"search": "Search",
+		"send": "Send",
+		"stats": "Statistics",
+		"change_avatar": "Change avatar",
+		"achievements": "Achievements",
+		"delete_account": "Delete account",
+		"exit": {
+			"quit": "Exit",
+			"game": "Exit game"
+		}
+
+	},
+
+	"dropdown": {
+		"select_option": "Select an option",
+		"en": "EN",
+		"fr": "FR",
+		"es": "ES"
+	},
+
+	"nav": {
+		"home": "↲ HOME",
+		"profile": "PROFILE",
+		"friends": "FRIENDS",
+		"languages": "LANGUAGES",
+		"leaderboard": "LEADERBOARD",
+		"rules": "RULES",
+		"logout": "LOGOUT"
+  	},
+
+	"status": {
+		"online": "Online",
+		"offline": "Offline"
+  	},
+
+	"user_info": {
+		"xp": "Experience Points",
+		"wins": "Wins",
+		"losses": "Losses"
+	},
+
+	"achievements": {
+		"none": "No achievements unlocked",
+		"PLAY_GAME": "First game",
+		"WIN_GAME": "First victory",
+		"PLACE_10_BOMBS": "Explosives expert"
+	},
+
+	"chat": {
+		"no_conv": "No conversations available.",
+		"no_msg": "No messages yet.",
+		"type_msg": "Type a message...",
+		"lobby_chat": "Lobby chat",
+		"private_msg": "Private message"
+	},
+
+	"toast": {
+		"profile": {
+			"updated": {
+				"success": "Profile updated successfully!"
+			}
+		},
+		"friends": {
+			"not_found": "Friend not found",
+			"removed": "Friend successfully removed"
+		},
+		"requests": {
+			"accepted": "Friend request successfully accepted",
+			"declined": "Friend request successfully declined"
+		},
+		"invites": {
+			"success": "Friend invite successfully sent",
+			"fail": "User not found, cannot invite"
+		}
+  },
+
+  	"profile": {
+		"username": "Username",
+		"change_username": "Change Username",
+		"current_username": "Current Username",
+		"new_username": "New Username",
+		"change_email": "Change Email",
+		"current_email": "Current Email",
+		"new_email": "New Email",
+		"current_password": "Current Password",
+		"change_password": "Change Password",
+		"new_password": "New Password",
+		"confirm_new_password": "Confirm New Password",
+		"update_failed": "Update failed. Please check your inputs.",
+		"delete_failed": "Failed to delete account."
+	},
+
+	"friends": {
+		"list": "Friends list",
+		"requests": "Friends requests",
+		"view": "View profile",
+		"remove": "Remove friend",
+		"enter_id": "Enter username",
+		"accept": "Accept",
+		"decline": "Decline"
+	},
+
+	"lobby": {
+		"buttons": {
+			"lobby": "LOBBY",
+			"create": "CREATE LOBBY",
+			"join_code": "JOIN BY CODE",
+			"join_lobby": "JOIN LOBBY",
+			"join": "JOIN",
+			"refresh": "REFRESH",
+			"retry": "RETRY",
+			"back_lobbies": "BACK TO LOBBIES",
+			"public": "PUBLIC LOBBIES",
+			"full": "FULL",
+			"invite": "INVITE",
+			"start": "START GAME",
+			"leave": "LEAVE"
+		},
+		"creation": {
+			"lobby_name": "Lobby name",
+			"enter_name": "Enter lobby name",
+			"public": "Public",
+			"private": "Private"
+		},
+		"join": {
+			"lobby_code": "Lobby code",
+			"enter_code": "Enter lobby code"
+		},
+		"info": {
+			"room": "Room: ",
+			"code": "Code: ",
+			"players": "players",
+			"you": "(YOU)",
+			"host": "HOST",
+			"ready": "READY",
+			"not_ready": "NOT READY",
+			"empty_slot": "Vacant",
+			"pick_color": "Pick your color"
+		},
+		"owner": "Owner: ",
+		"no_public": "No public lobbies available.",
+		"create_invite": "Create one and start playing!"
+	},
+
+	"rules": {
+		"controls": {
+			"cts": "Controls",
+			"solo": "Solo or Player 1",
+			"W": "Press W to go up.",
+			"S": "Press S to go down.",
+			"A": "Press A to go left.",
+			"D": "Press D to go right.",
+			"space": "Press Space to throw a bomb.",
+			"p_2": "Player 2",
+			"up": "Press ↑ to go up.",
+			"down": "Press ↓ to go down.",
+			"left": "Press ← to go left.",
+			"right": "Press → to go right.",
+			"bomb": "Press 0 to throw a bomb."
+		},
+		"map": {
+			"title": "Map",
+			"text": "Standard: 17×11 grid, up to 4 players.",
+			"legend": "Hard blocks are indestructible. Soft blocks are destructible and randomly placed. Corners are player spawn zones."
+		},
+		"basics": {
+			"title": "Basics",
+			"start": "Every player starts with 1 bomb, 1 speed, and 1 life.",
+			"bomb": "A placed bomb explodes after 2–3 seconds, then you get your bomb back.",
+			"block": "Bombs can't be moved or walked through once placed."
+		},
+		"power_ups": {
+			"title": "Power-ups",
+			"bomb_plus": "Bomb+ — place more bombs at once",
+			"bomb_minus": "Bomb− — fewer bombs at once (minimum 1)",
+			"kick": "Kick — kick bombs to slide them until they hit something",
+			"speed_plus": "Speed+ — move faster",
+			"speed_minus": "Speed− — move slower",
+			"flame_plus": "Flame+ — bigger explosion range",
+			"flame_minus": "Flame− — smaller explosion range"
+		}
+	},
+
+	"terms": {
+		"privacy_policy": "Privacy Policy",
+		"privacy": {
+			"gathering": {
+				"title": "Collection and Use of Data",
+				"content": "When you create an account and use Bomberman, we collect certain personal information such as your email address and password. This information is used to manage your account and improve your gaming experience. We do not share your personal information with third parties without your consent, except when required by law."
+			},
+			"info_use": {
+				"title": "Use of Information",
+				"content": "The collected information is used to manage your account, personalize your gaming experience, and provide you with updates about the game. We may also use your information to send you important communications regarding your account or the game."
+			},
+			"storage": {
+				"title": "Data Storage",
+				"content": "Your personal information is stored securely and is only accessible to authorized members of the development team. We take measures to protect your information against unauthorized access, disclosure, or destruction."
+			},
+			"third_party": {
+				"title": "Sharing of Information",
+				"content": "We do not share your personal information with third parties, except when required by law or if you give us your explicit consent. We may share aggregated and anonymized information for analytical and game improvement purposes."
+			},
+			"cookies_local_storage": {
+				"title": "Cookies and Local Storage",
+				"content": "Bomberman may use cookies and local storage to improve your gaming experience. Cookies are small files stored on your device that help us remember your preferences and track your progress in the game. You can manage your cookie preferences in your browser settings."
+			},
+			"security": {
+				"title": "Data Security",
+				"content": "We take the security of your personal information very seriously. We use standard security protocols to protect your data against unauthorized access, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security."
+			},
+			"rights": {
+				"title": "Your Rights",
+				"content": "You have the right to access, correct, or delete your personal information. You can also object to the collection and use of your personal data. To exercise these rights, please contact us via the email address provided in the application or on our website."
+			},
+			"project_nature": {
+				"title": "Educational Project",
+				"content": "Bomberman is an educational project developed within the context of a school project. As such, there may be temporary interruptions, maintenance or bugs. We strive to provide a stable and secure gaming experience, but we cannot guarantee continuous availability."
+			}
+		},
+
+		"terms_of_service": "Terms of Service",
+		"service": {		
+			"acceptance": {
+				"title": "Acceptance",
+				"content": "By creating an account and using Bomberman, you agree to these Terms of Service. If you do not agree with these terms, please do not use the application." 
+			},
+			"account": {
+				"title": "Account Creation and Management",
+				"content": "You are responsible for the confidentiality of your account and password. You agree to provide accurate information during registration and to keep this information up to date." 
+			},
+			"fairplay": {
+				"title": "Fair Play",
+				"content": "Players agree not to cheat, exploit bugs, harass other users or intentionally disrupt the game experience. Failure to respect these rules may result in account restrictions." 
+			},
+			"availability": {
+				"title": "Availability of Service",
+				"content": " This project is provided \"as is\". As an educational project, temporary interruptions, maintenance or bugs may occur."
+			},
+			"intellectual_property": {
+				"title": "Intellectual Property",
+				"content": "All intellectual property rights related to Bomberman, including the source code, graphics and design elements, are the property of their respective owners. You agree not to copy, reproduce or distribute these elements without authorization."
+			},
+			"privacy": {
+				"title": "Privacy",
+				"content": "We respect your privacy and are committed to protecting your personal information. Please refer to our Privacy Policy for more details on how we collect, use and protect your data."
+			},
+			"changes": {
+				"title": "Modifications of the Terms",
+				"content": "We reserve the right to modify these Terms of Service at any time. The modifications will be posted on this page and will take effect immediately after their posting. Please review this page regularly to stay informed about updates."
+			},
+			"contact": {
+				"title": "Contact",
+				"content": "If you have any questions about these Terms of Service, please contact us at the email address provided in the application or on our website."
+			}
+		},
+    "lastly_updated": "Last updated: August 2026"
+	}
+}

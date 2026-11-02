@@ -1,0 +1,40 @@
+generator client {
+	provider = "prisma-client-js"
+}
+
+datasource db {
+	provider = "postgresql"
+	url = env("DATABASE_URL")
+}
+
+enum LobbyStatus {
+	WAITING
+	IN_GAME
+}
+
+model Lobby {
+	id			String		@id @default(uuid())
+	name		String
+	ownerId 	Int
+	isPrivate	Boolean		@default(false)
+	code		String?		@unique
+	status		LobbyStatus	@default(WAITING)
+	maxPlayers	Int			@default(4)
+	createdAt	DateTime	@default(now())
+
+	players		LobbyPlayer[]
+}
+
+model LobbyPlayer {
+	id			Int			@id @default(autoincrement())
+	lobbyId		String
+	userId		Int
+	username	String
+	color		String?
+	ready		Boolean		@default(false)
+	joinedAt	DateTime	@default(now())
+
+	lobby		Lobby		@relation(fields: [lobbyId], references: [id], onDelete: Cascade)
+
+	@@unique([lobbyId, userId])
+}

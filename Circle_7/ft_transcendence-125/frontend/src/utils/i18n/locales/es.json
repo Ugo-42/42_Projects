@@ -1,0 +1,310 @@
+{
+	"play": "Jugar",
+	"game_board": "TABLERO DE JUEGO",
+	"or": "O",
+	"questions": {
+		"leave": "¿Quieres irte?",
+		"really_sure": "¿Está segura?"
+	},
+
+
+	"2FA": {
+		"login_failed": "Credenciales inválidas",
+		"two_factor_title": "Verificación en dos pasos",
+		"two_factor_sent": "Se ha enviado un código por correo electrónico. Por favor, ingrésalo.",
+		"two_factor_code": "Código de verificación",
+		"enter_two_factor_code": "Ingresa el código de 6 dígitos",
+		"two_factor_invalid": "Código inválido o expirado. Por favor, inténtalo de nuevo.",
+		"verify": "Verificar",
+		"two_factor_update_failed": "No se pudieron actualizar los ajustes de 2FA.",
+		"enable_two_factor": "Habilitar 2FA",
+		"disable_two_factor": "Deshabilitar 2FA"
+	},
+
+	"auth": {
+		"login": "INICIAR SESIÓN",
+		"register": "REGISTRARSE",
+		"signup_with": "INICIAR SESIÓN CON",
+		"username": "Nombre de usario",
+		"email_username": "Email o nombre de usario",
+		"password": "Contraseña",
+		"confirm_password": "Confirmar contraseña",
+		"enter_email": "Ingrese su email",
+		"enter_email_username": "Ingrese su email o nombre de usario",
+		"enter_password": "Ingrese su contraseña",
+		"create_account": "Crea una cuenta",
+		"have_account": "¿Ya tienes una cuenta?",
+		"choose": {
+			"choose_username": "Elige un nombre de usuario",
+			"choose_password": "Elige una contraseña"
+		}
+	},
+
+  	"button": {
+		"submit": "Enviar",
+		"edit": "Editar Perfil",
+		"create": "Crear",
+		"cancel": "Cancelar",
+		"delete": "Eliminar",
+		"close": "Cerrar",
+		"confirm": "Confirmar",
+		"add": "Añadir amigo",
+		"search": "Buscar",
+		"send": "Enviar",
+		"stats": "Estadística",
+		"change_avatar": "Cambiar avatar",
+		"delete_account": "Eliminar cuenta",
+		"achievements": "Recompensas",
+		"exit": {
+			"quit": "Salir",
+			"game": "Salir del juego"
+		}
+
+	},
+
+	"dropdown": {
+		"select_option": "Seleccionar una opción",
+		"en": "EN",
+		"fr": "FR",
+		"es": "ES"
+	},
+
+	"nav": {
+		"home": "↲ INICIO",
+		"profile": "PERFIL",
+		"friends": "AMIGOS",
+		"languages": "IDIOMAS",
+		"leaderboard": "TABLA DE CLASIFICACIÓN",
+		"rules": "REGLAS",
+		"logout": "CERRAR SESIÓN"
+  	},
+
+	"status": {
+		"online": "En línea",
+		"offline": "Fuera de línea"
+  	},
+
+  	"user_info": {
+		"xp": "Puntos de experiencia",
+		"wins": "Victorias",
+		"losses": "Pérdidas"
+	},
+
+	"achievements": {
+		"none": "No hay logros desbloqueados.",
+		"PLAY_GAME": "Primer juego",
+		"WIN_GAME": "Primera victoria",
+		"PLACE_10_BOMBS": "Experto en explosivos"
+	},
+
+	"chat": {
+		"no_conv": "No hay conversaciones disponibles.",
+		"no_msg": "Aún no hay mensajes.",
+		"type_msg": "Escribe un mensaje...",
+		"lobby_chat": "Chat del lobby",
+		"private_msg": "Mensaje privado"
+	},
+
+	"toast": {
+		"profile": {
+			"updated": {
+				"success": "Perfil actualizado con éxito!"
+			}
+		},
+		"friends": {
+			"not_found": "Amigo no encontrado",
+			"removed": "Amigo eliminado con éxito"
+		},
+		"requests": {
+			"accepted": "Solicitud de amistad aceptada con éxito",
+			"declined": "Solicitud de amistad rechazada con éxito"
+		},
+		"invites": {
+			"success": "Invitación de amistad enviada con éxito",
+			"fail": "Usuario no encontrado, no se puede invitar"
+		}
+  },
+
+    "profile": {
+		"username": "Nombre de usuario",
+		"change_username": "Cambiar nombre de usuario",
+		"current_username": "Nombre de usuario actual",
+		"new_username": "Nuevo nombre de usuario",
+		"change_email": "Cambiar correo electrónico",
+		"current_email": "Correo electrónico actual",
+		"new_email": "Nuevo correo electrónico",
+		"current_password": "Contraseña actual",
+		"change_password": "Cambiar contraseña",
+		"new_password": "Nueva contraseña",
+		"confirm_new_password": "Confirmar nueva contraseña",
+		"update_failed": "Actualización fallida. Por favor, revisa tus entradas.",
+		"delete_failed": "Error al eliminar la cuenta."
+	},
+
+	"friends": {
+		"list": "Lista de amigos",
+		"requests": "Solicitudes de amistad",
+		"view": "Ver perfil",
+		"remove": "Eliminar amigo",
+		"enter_id": "Introduce un nombre de usuario",
+		"accept": "Aceptar",
+		"decline": "Rechazadar"
+	},
+
+	"lobby": {
+		"buttons": {
+			"lobby": "LOBBY",
+			"create": "CREAR UN LOBBY",
+			"join_code": "UNIRSE MEDIANTE CÓDIGO",
+			"join_lobby": "UNIRSE EL LOBBY",
+			"join": "UNIRSE",
+			"refresh": "REFRESCAR",
+			"retry": "REVER",
+			"back_lobbies": "VOLVER A LAS LOBBIES",
+			"public": "LOBBIES PÚBLICOS",
+			"full": "LLENO",
+			"invite": "INVITAR",
+			"start": "INICIAR JUEGO",
+			"leave": "DEJAR"
+		},
+		"creation": {
+			"lobby_name": "Nombre del lobby",
+			"enter_name": "Introduce el nombre del lobby",
+			"public": "Públicos",
+			"private": "Privado"
+		},
+		"join": {
+			"lobby_code": "Código del lobby",
+			"enter_code": "Introduce el código del lobby"
+		},
+		"info": {
+			"room": "Sala : ",
+			"code": "Código : ",
+			"players": "jugadores",
+			"you": "(TÚ)",
+			"host": "HUÉSPED",
+			"ready": "LISTO",
+			"not_ready": "NO ESTÁ LISTO",
+			"vacant": "Vacante",
+			"pick_color": "Elige tu color"
+		},
+		"owner": "Dueño : ",
+		"no_public": "No hay lobbies públicas disponibles.",
+		"create_invite": "¡Crea uno y empieza a jugar!"
+	},
+
+	"rules": {
+		"controls": {
+			"cts": "Controles",
+			"solo": "Solo o Jugador 1",
+			"W": "Pulsa W para subir.",
+			"S": "Pulsa S para bajar.",
+			"A": "Pulsa A para ir a la izquierda.",
+			"D": "Pulsa D para ir a la derecha.",
+			"space": "Pulsa la barra espaciadora para lanzar una bomba.",
+			"p_2": "Player 2",
+			"up": "Pulsa ↑ para subir.",
+			"down": "Pulsa ↓ para bajar.",
+			"left": "Pulsa ← para ir a la izquierda.",
+			"right": "Pulsa → para ir a la derecha.",
+			"bomb": "Pulsa 0 para lanzar una bomba."
+		},
+		"map": {
+			"title": "Mapa",
+    		"text": "Estándar: cuadrícula 17×11, hasta 4 jugadores.",
+    		"legend": "Los bloques duros son indestructibles. Los bloques frágiles son destructibles y se colocan al azar. Las esquinas son zonas de aparición de jugadores."
+		},
+		"basics": {
+			"title": "Reglas básicas",
+			"start": "Cada jugador empieza con 1 bomba, 1 velocidad y 1 punto de vida.",
+			"bomb": "Una bomba colocada explota tras 2-3 segundos, luego recuperas tu bomba.",
+			"block": "Las bombas no se pueden mover ni atravesar una vez colocadas."
+		},
+		"power_ups": {
+			"title": "Mejoras",
+			"bomb_plus": "Bomba+ — coloca más bombas a la vez",
+			"bomb_minus": "Bomba− — coloca menos bombas a la vez (mínimo 1)",
+			"kick": "Patada — permite deslizar las bombas hasta chocar con algo",
+			"speed_plus": "Velocidad+ — te mueves más rápido",
+			"speed_minus": "Velocidad− — te mueves más lento",
+			"flame_plus": "Llama+ — aumenta el alcance de la explosión",
+			"flame_minus": "Llama− — reduce el alcance de la explosión"
+		}
+	},
+
+	"terms": {
+		"privacy_policy": "Política de privacidad",
+		"privacy": {
+			"gathering": {
+				"title": "Collección y uso de datos",
+				"content": "Cuando creas un cuenta y usas Bomberman, recopilamos cierta información personal como tu dirección de correo electrónico y contraseña. Estas informaciones son utilizadas para gestionar tu cuenta y mejorar tu experiencia de juego. No compartimos tu información personal con terceros sin tu consentimiento, salvo que la ley lo exija."
+			},
+			"info_use": {
+				"title": "Utilización de la información",
+				"content": "La información recopilada es utilizada para gestionar tu cuenta, personalizar tu experiencia de juego y proporcionarte actualizaciones sobre el juego. También podemos utilizar tu información para enviarte comunicaciones importantes relacionadas con tu cuenta o el juego."
+			},
+			"storage": {
+				"title": "Almacenamiento de datos",
+				"content": "Tus información personal es almacenada de manera segura y solo es accesible para los miembros autorizados del equipo de desarrollo. Tomamos medidas para proteger tu información contra cualquier acceso no autorizado, divulgación o destrucción."
+			},
+			"third_party": {
+				"title": "Compartir información",
+				"content": "No compartimos tu información personal con terceros, salvo que la ley lo exija o si nos das tu consentimiento explícito. Podemos compartir información agregada y anonimizada con fines de análisis y mejora del juego."
+			},
+			"cookies_local_storage": {
+				"title": "Cookies y almacenamiento local",
+				"content": "Bomberman puede utilizar cookies y almacenamiento local para mejorar tu experiencia de juego. Las cookies son pequeños archivos almacenados en tu dispositivo que nos ayudan a recordar tus preferencias y seguir tu progreso en el juego. Puedes gestionar tus preferencias sobre cookies en los ajustes de tu navegador."
+			},
+			"security": {
+				"title": "Seguridad de los datos",
+				"content": "Tomamos la seguridad de tus información personal muy en serio. Utilizamos protocolos de seguridad estándar para proteger tus datos contra cualquier acceso no autorizado, divulgación o destrucción. Sin embargo, ninguna método de transmisión por Internet o de almacenamiento electrónico es totalmente seguro, y no podemos garantizar una seguridad absoluta."
+			},
+			"rights": {
+				"title": "Tus derechos",
+				"content": "Tienes el derecho de acceder, corregir o eliminar tu información personal. También puedes oponerte a la recopilación y uso de tus datos personales. Para ejercer estos derechos, por favor contáctanos a través de la dirección de correo electrónico proporcionada en la aplicación o en nuestro sitio web."
+			},
+			"project_nature": {
+				"title": "Proyecto educativo",
+				"content": "Bomberman es un proyecto educativo desarrollado en el marco de un proyecto escolar. Como tal, puede haber interrupciones temporales, mantenimiento o errores. Nos esforzamos por proporcionar una experiencia de juego estable y segura, pero no podemos garantizar una disponibilidad continua."
+			}
+		},
+
+		"terms_of_service": "Términos de servicio",
+		"service": {		
+			"acceptance": {
+				"title": "Aceptación de los términos de servicio",
+				"content": "Al crear una cuenta y utilizar Bomberman, aceptas estos Términos de servicio. Si no aceptas estos términos, por favor no utilices la aplicación."
+			},
+			"account": {
+				"title": "Creación y gestión de la cuenta",
+				"content": "Eres responsable de la privacidad de tu cuenta y contraseña. Aceptas proporcionar información exacta al registrarte y mantener esta información actualizada." 
+			},
+			"fairplay": {
+				"title": "Comportamiento y fair-play",
+				"content": "Te comprometes a respetar a los demás jugadores y a no usar trampas, hacks u otros medios para obtener una ventaja injusta en el juego. Cualquier comportamiento abusivo puede resultar en la suspensión o eliminación de tu cuenta." 
+			},
+			"availability": {
+				"title": "Disponibilidad del servicio",
+				"content": " Este proyecto se proporciona \"tal cual\". Como proyecto educativo, pueden ocurrir interrupciones temporales, mantenimiento o errores."
+			},
+			"intellectual_property": {
+				"title": "Propiedad intelectual",
+				"content": "Todos los derechos de propiedad intelectual relacionados con Bomberman, incluyendo el código fuente, los gráficos y los elementos de diseño, son propiedad de sus respectivos creadores. Aceptas no copiar, reproducir ni distribuir estos elementos sin autorización."
+			},
+			"privacy": {
+				"title": "Privacidad",
+				"content": "Respetamos tu privacidad y nos comprometemos a proteger tu información personal. Por favor, consulta nuestra Política de privacidad para obtener más detalles sobre cómo recopilamos, utilizamos y protegemos tus datos."
+			},
+			"changes": {
+				"title": "Modificaciones de las condiciones",
+				"content": "Nos reservamos el derecho de modificar estos Términos de servicio en cualquier momento. Las modificaciones se publicarán en esta página y surtirán efecto inmediatamente después de su publicación. Por favor, consulta regularmente esta página para mantenerte informado sobre las actualizaciones."
+			},
+			"contact": {
+				"title": "Contacto",
+				"content": "Si tienes preguntas sobre estos Términos de servicio, por favor contáctanos a través del correo electrónico proporcionado en la aplicación o en nuestro sitio web."
+			}
+		},
+
+    "lastly_updated": "Anteriormente actualizado: Agosto 2026"
+	}
+}

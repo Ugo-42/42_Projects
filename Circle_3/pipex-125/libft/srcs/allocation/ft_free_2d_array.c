@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_free_2d_array.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ugwentzi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/29 16:15:51 by ugwentzi          #+#    #+#             */
+/*   Updated: 2024/11/29 16:17:58 by ugwentzi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft_allocation.h"
+
+void	ft_free_2d_array(char ***array)
+{
+	size_t	i;
+
+	if (array && *array)
+	{
+		i = 0;
+		while ((*array)[i])
+		{
+			free((*array)[i]);
+			(*array)[i] = NULL;
+			i++;
+		}
+		free(*array);
+		*array = NULL;
+	}
+}
